@@ -294,6 +294,15 @@ a:hover{opacity:0.92}
   .caseGrid{grid-template-columns:1fr; gap: 14px;}
 }
 
+/* Work page: text-only rows (no thumbnails) */
+.workLink{
+  grid-template-columns: 1fr !important;
+}
+
+.thumb{
+  display: none !important;
+}
+
 /* Make .card act like a plain container */
 .card{
   border: 0;
