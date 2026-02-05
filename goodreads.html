@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodreads Recommendation System | Deboshree Roy</title>
+  <meta name="description" content="A Goodreads recommender: baselines, collaborative filtering, and offline ranking evaluation." />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+
+<body>
+  <div class="ribbon">
+    <div class="ribbonInner">
+      <div class="brand">
+        <div class="brandMark">DR</div>
+        <div>Deboshree Roy</div>
+      </div>
+
+      <div class="navLinks">
+        <a href="../index.html#about">about</a>
+        <a href="../index.html#work">work</a>
+        <a href="../index.html#contact">contact</a>
+      </div>
+
+      <a class="navCTA" href="../index.html#contact">let’s connect</a>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="caseHero">
+      <h1 class="caseTitle">Goodreads Book Recommendation System</h1>
+      <p class="caseSubtitle">
+        Built and evaluated a personalized recommender using Goodreads interactions, comparing popularity baselines to
+        collaborative filtering and measuring performance with offline ranking metrics.
+      </p>
+
+      <div class="caseMeta">
+        <span class="pill lav">machine learning</span>
+        <span class="pill">recommenders</span>
+        <span class="pill">ranking</span>
+        <span class="pill">evaluation</span>
+      </div>
+
+      <div class="backRow">
+        <a class="backLink" href="../index.html#work">← back to selected work</a>
+      </div>
+    </section>
+
+    <div class="sectionHead">
+      <h2>Overview</h2>
+      <p>Personalization is only as good as its evaluation. This case study emphasizes tradeoffs and measurement.</p>
+    </div>
+    <div class="rule"></div>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Problem</h3>
+        <p>
+          Recommend books a user is likely to enjoy. The goal isn’t just “accuracy,” but better ranking and coverage:
+          surfacing relevant items early while avoiding popularity traps.
+        </p>
+        <ul>
+          <li>How does personalization compare to “most popular”?</li>
+          <li>What do offline metrics say about ranking quality?</li>
+          <li>Where does collaborative filtering break down?</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Data</h3>
+        <p>
+          Goodreads public datasets (user-book interactions / ratings / shelves), filtered to active users and books.
+        </p>
+        <ul>
+          <li>Train/validation/test split by time (preferred) or holdout</li>
+          <li>Implicit feedback conversion (e.g., rating &gt;= 4 = positive)</li>
+          <li>Sparsity handling and cold-start notes</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="figure">
+      <img src="../assets/goodreads-1.png" alt="Ranking evaluation figure" onerror="this.style.display='none'">
+      <div class="figcap">Figure: Offline evaluation summary (placeholder — add your plot/table screenshot).</div>
+    </div>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Models</h3>
+        <ul>
+          <li><strong>Baseline:</strong> popularity ranking (global + genre bucket)</li>
+          <li><strong>CF:</strong> user-user or item-item collaborative filtering</li>
+          <li><strong>Optional stretch:</strong> matrix factorization / ALS</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Evaluation</h3>
+        <ul>
+          <li>NDCG@K (ranking quality)</li>
+          <li>Precision@K / Recall@K (top-K relevance)</li>
+          <li>Coverage + novelty (product-friendly metrics)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>Personalization improves ranking for active users with history</li>
+          <li>Popularity baseline is hard to beat for cold-start users</li>
+          <li>Offline improvements may not translate without online tests</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Where it breaks</h3>
+        <ul>
+          <li>New users / new books (cold-start)</li>
+          <li>Popularity bias reduces diversity</li>
+          <li>Sparsity causes unstable neighbors/factors</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Next steps</h3>
+        <ul>
+          <li>Add content features (genres, embeddings from descriptions)</li>
+          <li>Hybrid ranker + explore/exploit strategy</li>
+          <li>Define online experiment + guardrails (CTR, long-term retention)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Artifacts</h3>
+        <ul>
+          <li>Reproducible notebook</li>
+          <li>Evaluation report (metrics + plots)</li>
+          <li>Case study write-up</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Deboshree Roy</div>
+      <div><a href="../index.html#contact">contact</a></div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

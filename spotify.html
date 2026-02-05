@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotify Listening Retention & Engagement | Deboshree Roy</title>
+  <meta name="description" content="Spotify listening behavior analysis: cohorts, retention, engagement segmentation, and product insights." />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+
+<body>
+  <div class="ribbon">
+    <div class="ribbonInner">
+      <div class="brand">
+        <div class="brandMark">DR</div>
+        <div>Deboshree Roy</div>
+      </div>
+
+      <div class="navLinks">
+        <a href="../index.html#about">about</a>
+        <a href="../index.html#work">work</a>
+        <a href="../index.html#contact">contact</a>
+      </div>
+
+      <a class="navCTA" href="../index.html#contact">let’s connect</a>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="caseHero">
+      <h1 class="caseTitle">Spotify Listening Retention & Engagement</h1>
+      <p class="caseSubtitle">
+        A product analytics case study using Spotify listening data to understand retention patterns, engagement segments,
+        and actionable drivers of long-term usage.
+      </p>
+
+      <div class="caseMeta">
+        <span class="pill mint">product analytics</span>
+        <span class="pill">cohorts</span>
+        <span class="pill">retention</span>
+        <span class="pill">segmentation</span>
+      </div>
+
+      <div class="backRow">
+        <a class="backLink" href="../index.html#work">← back to selected work</a>
+      </div>
+    </section>
+
+    <div class="sectionHead">
+      <h2>Overview</h2>
+      <p>What I did, what I found, and what I’d recommend if this were a real product team.</p>
+    </div>
+    <div class="rule"></div>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Problem</h3>
+        <p>
+          Retention is often a story told in averages. I wanted to understand how listening behavior varies across users:
+          who sticks, who churns, and what behaviors predict long-term engagement.
+        </p>
+        <ul>
+          <li>How does retention vary by first-week behavior?</li>
+          <li>Which engagement patterns correlate with long-term usage?</li>
+          <li>What segments should a product team prioritize?</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Data</h3>
+        <p>
+          Spotify listening history export (personal data) or a synthetic dataset that mirrors real listening event structure.
+          Events include timestamps, track/artist metadata, and session-level behavior.
+        </p>
+        <ul>
+          <li>Unit of analysis: user-week &amp; sessions</li>
+          <li>Key metrics: sessions/week, minutes listened, diversity, repeats</li>
+          <li>Outputs: cohort curves + segment profiles</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="figure">
+      <img src="../assets/spotify-1.png" alt="Spotify retention curve figure" onerror="this.style.display='none'">
+      <div class="figcap">Figure: Cohort retention curve (placeholder — add your plot screenshot here).</div>
+    </div>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Method</h3>
+        <p>
+          Built a retention view (cohorts by first-week start date), then layered segmentation and predictor analysis:
+        </p>
+        <ul>
+          <li>Cohort retention curves (weekly active listeners)</li>
+          <li>Sessionization (gap-based) for session frequency and depth</li>
+          <li>Engagement segments (power / regular / casual)</li>
+          <li>Churn proxy model (e.g., no activity in N weeks)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Key insights</h3>
+        <p>
+          This section becomes your “product memo.” Keep it crisp: 3 findings + 3 recommendations.
+        </p>
+        <ul>
+          <li>Example finding: early habit formation predicts long-term retention</li>
+          <li>Example finding: session frequency matters more than session length</li>
+          <li>Example finding: diversity vs repeats indicates different listener intents</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Recommendations</h3>
+        <ul>
+          <li>Personalize onboarding based on first-week behavior signals</li>
+          <li>Build nudges for “near-regular” users at risk of drop-off</li>
+          <li>Experiment with playlist prompts that increase weekly habit</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>What I’d do next</h3>
+        <ul>
+          <li>Define experiment candidates + success metrics</li>
+          <li>Test segmentation stability over time</li>
+          <li>Add causal framing (e.g., propensity adjustment) for interventions</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Deboshree Roy</div>
+      <div><a href="../index.html#contact">contact</a></div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
