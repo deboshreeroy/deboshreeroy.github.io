@@ -7,30 +7,20 @@
 
   --lav: #7c5cff;
   --pink: #e85a9c;
+  --pinkDeep: #c2185b;   
   --mint: #12b886;
 
   --max: 1100px;
 }
 
-/* Soft ambient background glow */
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(900px 600px at 20% 10%, rgba(124,92,255,0.05), transparent 60%),
-    radial-gradient(800px 600px at 85% 25%, rgba(232,90,156,0.04), transparent 60%),
-    radial-gradient(900px 700px at 40% 90%, rgba(18,184,134,0.04), transparent 60%);
-  z-index: -1;
-}
-
 /* Base */
 *{box-sizing:border-box}
+
 html{
   scroll-behavior:smooth;
   scrollbar-gutter: stable;
 }
+
 body{
   margin:0;
   overflow-y: scroll;
@@ -42,7 +32,10 @@ body{
   text-rendering: optimizeLegibility;
 }
 
-a{color:inherit; text-decoration:none}
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
 .wrap{
   max-width:var(--max);
@@ -124,7 +117,7 @@ a{color:inherit; text-decoration:none}
   width:6px;
   height:6px;
   border-radius:50%;
-  background: linear-gradient(135deg, var(--lav), var(--pink));
+  background: var(--pinkDeep);
 }
 
 /* ----------------------------- */
@@ -284,11 +277,12 @@ a{color:inherit; text-decoration:none}
   font-size:14px;
 }
 
+/* Unified dot color */
 .workMore .dot{
   width:10px;
   height:10px;
   border-radius:999px;
-  background: linear-gradient(135deg, var(--lav), var(--pink));
+  background: var(--pinkDeep);
 }
 
 /* ----------------------------- */
@@ -411,5 +405,5 @@ footer{
 
 /* Selection color */
 ::selection{
-  background: rgba(124,92,255,0.18);
+  background: rgba(194,24,91,0.18);
 }
