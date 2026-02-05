@@ -90,7 +90,7 @@ a:hover{opacity:0.92}
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--ink);
+  background: linear-gradient(135deg, var(--lav), var(--pink));
 }
 
 /* Hero */
