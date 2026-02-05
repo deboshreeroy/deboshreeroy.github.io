@@ -127,6 +127,11 @@ a{
   padding:74px 0 34px;
 }
 
+.pageHero{
+  padding: 64px 0 24px;
+  min-height: 240px; /* keeps the rule from shifting if subtitles wrap */
+}
+
 .heroGrid{
   display:grid;
   grid-template-columns: 1.35fr 0.65fr;
