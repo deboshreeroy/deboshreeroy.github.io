@@ -254,6 +254,16 @@ a:hover{
   background: linear-gradient(135deg, var(--lav), var(--pink));
 }
 
+.workItem{
+  transition: opacity 0.18s ease;
+}
+.workItem:hover{
+  opacity: 0.92;
+}
+.workItem:hover .workTitle{
+  letter-spacing: -0.2px; /* tiny “tighten” */
+}
+
 /* Thumbnails (clean frame, not a "card") */
 .thumb{
   border-radius: 14px;
