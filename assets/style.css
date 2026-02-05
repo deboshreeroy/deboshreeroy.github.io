@@ -68,13 +68,11 @@ a:hover{opacity:0.92}
   color: var(--ink);
   border-bottom: 1px solid rgba(244,244,247,0.45);
 }
-.navCTA{
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: transparent;
+
+/* Active nav state */
+.navLinks a.active {
   color: var(--ink);
-  font-weight: 750;
+  border-bottom: 1px solid rgba(244,244,247,0.7);
 }
 
 /* Hero */
