@@ -206,6 +206,15 @@ a:hover{
 .pill.pink{border-color: rgba(232,90,156,0.35); color: var(--pink);}
 .pill.mint{border-color: rgba(18,184,134,0.35); color: var(--mint);}
 
+.pill{
+  border: 0;
+  background: transparent;
+  padding: 0;
+  opacity: 0.85;
+}
+.metaRow{ gap: 14px; }
+
+
 /* Selected Work (cardless editorial rows) */
 .work{
   margin-top: 18px;
