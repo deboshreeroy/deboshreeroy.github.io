@@ -69,10 +69,28 @@ a:hover{opacity:0.92}
   border-bottom: 1px solid rgba(244,244,247,0.45);
 }
 
-/* Active nav state */
+.navLinks a {
+  position: relative;
+  padding-bottom: 14px;
+  transition: color 0.2s ease;
+}
+
+/* Active state */
 .navLinks a.active {
   color: var(--ink);
-  border-bottom: 1px solid rgba(244,244,247,0.7);
+}
+
+/* The dot */
+.navLinks a.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
 }
 
 /* Hero */
