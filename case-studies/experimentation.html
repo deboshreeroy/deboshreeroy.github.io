@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Experiment Design & Metric Validation | Deboshree Roy</title>
+  <meta name="description" content="A product experimentation case study: metric design, guardrails, A/B analysis, and a decision memo." />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+
+<body>
+  <div class="ribbon">
+    <div class="ribbonInner">
+      <div class="brand">
+        <div class="brandMark">DR</div>
+        <div>Deboshree Roy</div>
+      </div>
+
+      <div class="navLinks">
+        <a href="../index.html">about</a>
+        <a href="../work.html" class="active">work</a>
+        <a href="../contact.html">contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="caseHero">
+      <h1 class="caseTitle">Experiment Design & Metric Validation</h1>
+      <p class="caseSubtitle">
+        A product experimentation case study: defining success metrics and guardrails, running an A/B analysis,
+        and writing a decision memo that accounts for tradeoffs and risk.
+      </p>
+
+      <div class="caseMeta">
+        <span class="pill lav">experimentation</span>
+        <span class="pill">metrics</span>
+        <span class="pill">causal thinking</span>
+        <span class="pill">decision memo</span>
+      </div>
+
+      <div class="backRow">
+        <a class="backLink" href="../work.html">← back to selected work</a>
+      </div>
+    </section>
+
+    <div class="sectionHead">
+      <h2>Overview</h2>
+      <p>This project is intentionally written like a real product decision: define the goal, measure safely, decide clearly.</p>
+    </div>
+    <div class="rule"></div>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Problem</h3>
+        <p>
+          A feature change improved a short-term engagement metric, but the team was unsure whether it was “real value”
+          or just shifting behavior. The goal was to design an experiment and validate metrics so the decision would hold up.
+        </p>
+        <ul>
+          <li>Define a primary metric that reflects the product goal</li>
+          <li>Add guardrails to prevent “winning the metric” at user expense</li>
+          <li>Analyze results with appropriate uncertainty + segmentation</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Experiment design</h3>
+        <ul>
+          <li>Population: eligible active users</li>
+          <li>Randomization: user-level assignment</li>
+          <li>Duration: long enough to capture habit + novelty effects</li>
+          <li>Power: back-of-the-envelope MDE + sample size estimate</li>
+          <li>Risks: interference, seasonality, logging changes</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="figure">
+      <img src="../assets/exp-1.png" alt="Experiment results figure" onerror="this.style.display='none'">
+      <div class="figcap">Figure: Primary metric + guardrails (placeholder — add your plot screenshot here).</div>
+    </div>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Metrics</h3>
+        <ul>
+          <li><strong>Primary:</strong> activation-to-retention or meaningful usage (not raw clicks)</li>
+          <li><strong>Secondary:</strong> session frequency / depth</li>
+          <li><strong>Guardrails:</strong> latency, error rate, unsubscribes, user complaints</li>
+          <li><strong>Quality:</strong> long-term engagement proxy (week 2+ retention)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Analysis</h3>
+        <ul>
+          <li>Difference-in-means + confidence intervals</li>
+          <li>Non-parametric check (bootstrap) for robustness</li>
+          <li>Segment cuts (new vs existing, light vs heavy users)</li>
+          <li>Sanity checks for randomization + logging consistency</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Key findings</h3>
+        <ul>
+          <li>Observed lift in primary metric was concentrated in a specific segment (e.g., new users)</li>
+          <li>Guardrails stayed flat → improvement likely not at the expense of reliability</li>
+          <li>Some secondary metrics rose while others didn’t → clarified mechanism of impact</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Decision memo</h3>
+        <p>
+          Recommendation: ship to 100% for the segment where impact is meaningful, and run a follow-up test to validate
+          long-term retention effects. Document risks and monitoring thresholds.
+        </p>
+        <ul>
+          <li>Ship criteria + monitoring plan</li>
+          <li>Open questions + next experiment</li>
+          <li>Rollback triggers if guardrails move</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="caseGrid">
+      <div class="card">
+        <h3>Where it breaks</h3>
+        <ul>
+          <li>Metric sensitivity: short-term wins can mask long-term harm</li>
+          <li>Seasonality: experiments spanning holidays can mislead</li>
+          <li>Instrumentation: logging changes can create fake lift</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Next steps</h3>
+        <ul>
+          <li>Holdout group for long-term measurement</li>
+          <li>Define a north star metric aligned to user value</li>
+          <li>Build a reusable experimentation template / notebook</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Deboshree Roy</div>
+      <div><a href="../contact.html">contact</a></div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
