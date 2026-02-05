@@ -127,9 +127,20 @@ a{
   padding:74px 0 34px;
 }
 
-.pageHero {
-  padding: 64px 0 24px;
+/* Make all subpage headers identical */
+.pageHero{
+  padding: 56px 0 0;          
   border-bottom: 1px solid var(--border);
+  min-height: 0;              
+}
+
+.pageHero .pageTitle{
+  margin: 0 0 10px;
+}
+
+.pageHero .lede{
+  margin: 0 0 18px;          
+  max-width: 92ch;            
 }
 
 .heroGrid{
