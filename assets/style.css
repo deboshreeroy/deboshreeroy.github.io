@@ -12,6 +12,15 @@
   --max: 1100px;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+
 /* Base */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
