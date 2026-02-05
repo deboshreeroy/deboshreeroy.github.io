@@ -11,6 +11,14 @@
 
   --max: 1100px;
 }
+body{
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.lede, .workDesc, .card p{
+  max-width: 72ch;
+}
 
 html {
   scrollbar-gutter: stable;
@@ -19,7 +27,6 @@ html {
 body {
   overflow-y: scroll;
 }
-
 
 /* Base */
 *{box-sizing:border-box}
