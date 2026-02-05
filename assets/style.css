@@ -129,7 +129,7 @@ a{
 
 .pageHero{
   padding: 64px 0 24px;
-  min-height: 240px; 
+  min-height: 220px; 
 }
 
 .heroGrid{
@@ -213,7 +213,7 @@ a{
 .rule{
   height: 1px;
   background: var(--border);
-  margin: 24px 0 0;
+  margin: 16px 0 0;
 }
 
 
