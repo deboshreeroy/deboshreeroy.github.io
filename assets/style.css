@@ -83,10 +83,6 @@ a{
   display:block;
 }
 
-.brandName{
-  color: var(--pinkDeep);
-}
-
 .navLinks{
   display:flex;
   gap:18px;
