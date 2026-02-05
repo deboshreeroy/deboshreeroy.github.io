@@ -76,12 +76,11 @@ a{
 
 .brandMark{
   width: 34px;
-  height:34px;
-  border-radius:999px;
-  display:grid;
-  place-items:center;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  display:block;
   border: 1px solid var(--border);
-  font-size: 12px;
 }
 
 .navLinks{
