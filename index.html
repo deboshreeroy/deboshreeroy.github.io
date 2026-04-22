@@ -215,10 +215,10 @@
     }
 
     .btn-primary {
-      background: var(--ink);
+      background: var(--accent);
       color: var(--bg);
     }
-    .btn-primary:hover { background: #2d2a25; transform: translateY(-1px); }
+    .btn-primary:hover { background: #7d2449; transform: translateY(-1px); }
 
     .btn-outline {
       background: transparent;
@@ -414,13 +414,45 @@
       font-size: 0.8rem;
       color: var(--accent);
       font-weight: 500;
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.75rem;
     }
 
     .exp-content p {
       font-size: 0.8rem;
       color: var(--ink2);
       line-height: 1.7;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.8rem;
+      color: var(--ink2);
+      line-height: 1.65;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .exp-bullets li strong {
+      color: var(--ink);
+      font-weight: 600;
     }
 
     /* ─── CONTACT ─── */
@@ -510,7 +542,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#influences">Influences</a></li>
+    <li><a href="#influences">Reading</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -522,7 +554,7 @@
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#experience" onclick="closeMobile()">Experience</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#influences" onclick="closeMobile()">Influences</a>
+  <a href="#influences" onclick="closeMobile()">Reading</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
 
@@ -532,12 +564,13 @@
     <div class="hero-left">
       <h1>Hi, I'm Deboshree.</h1>
       <p class="hero-desc">
-        I'm drawn to the intersection of data and human context, understanding why decisions happen and building systems that help people make better ones.
+        I build machine learning systems and data workflows that help make sense of complex, real-world data. I'm especially interested in how those insights translate into decisions people can actually use.
       </p>
+      <p style="font-family:var(--mono);font-size:0.68rem;color:var(--muted);letter-spacing:0.12em;margin-bottom:2.2rem;">Machine Learning · Product Analytics · AI Systems</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-outline">Get in touch</a>
+        <a href="#" class="btn btn-primary">Resume</a>
         <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn</a>
-        <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
       </div>
     </div>
   </div>
@@ -552,19 +585,22 @@
     </div>
     <div class="about-body reveal">
       <p>
-        I started in <strong>Electronics Engineering</strong>, which taught me systems thinking and how to reason inside constraints. That foundation became the substrate beneath everything I'm drawn to build. Alongside my studies, I built a profitable fashion accessories business end-to-end, from Shopify to targeted marketing, and led TEDxVITPune as licensee, coordinating a team of 100+ across departments.
+        I started in Electronics Engineering, where I learned to think in systems: how constraints shape decisions, and how components interact. That foundation has shaped how I approach everything I build.
       </p>
       <p>
-        I then spent two years at <strong>FinIQ Consulting</strong>, working at the intersection of finance and data. I built and delivered analytics solutions for clients across varying levels of technical sophistication, which meant translating complex model outputs into decisions that stakeholders could actually act on. I was also part of the team that contributed to the consumer amortising bonds launch in India. It's where I learned that the quality of an insight is only as good as the clarity with which it lands.
+        Alongside that, I explored building things in very different contexts, from running a fashion accessories business end-to-end to leading TEDxVITPune as licensee, coordinating a team of 100+ across departments.
       </p>
       <p>
-        My <strong>MS in Computer Engineering with a focus in Machine Learning</strong> gave me the depth: the math, the architecture, the research instincts. At RIT I also redesigned a university-wide leadership program, discussed AI policy with members of Congress, conducted neuroscience research, and completed my thesis in the predictive mental health space.
+        I then spent two years at FinIQ Consulting in a forward-deployed role, working with banking clients across the Middle East and South Asia. I translated business requirements into engineering specs, supported software delivery, and worked closely with stakeholders to ensure adoption post-launch. I was also part of the team that contributed to the consumer amortising bonds launch in India.
       </p>
       <p>
-        I'm currently at <strong>Qualitrol, a subsidiary of Ralliant Corporation</strong>, building agentic AI systems in production: full product modernizations driven by LLM workflows, MCP server integrations, and data pipelines that turn raw sensor signals into actionable insights.
+        During my MS in Computer Engineering (Machine Learning) at RIT, I deepened that foundation through work in machine learning, cognitive research, and predictive modeling. I completed my thesis in the predictive mental health space, worked on adversarial ML at Brainlab on an Air Force Research Laboratory-sponsored project, and conducted cognitive research at the SPACE Center studying how deafness affects mathematical reasoning in children.
+      </p>
+      <p>
+        I now work at Qualitrol, where I build and deploy AI-enabled systems in production: developing ML pipelines for operational data, leading agentic development workflows, and integrating LLMs into engineering tools used across teams.
       </p>
       <div class="pull-quote">
-        <p>"Across all of it, the thread for me has always been people. Making complex things accessible and building systems that actually get used. A background spanning engineering, finance, and research means I can see both what a problem is and why it matters."</p>
+        <p>Across all of it, the thread has been the same: understanding how people interact with systems, and building ones that work for them.</p>
       </div>
     </div>
   </div>
@@ -583,7 +619,12 @@
       <div class="exp-content">
         <h3>R&D Engineer, ML and Data Platforms</h3>
         <div class="exp-company">Qualitrol, a Ralliant Corporation subsidiary</div>
-        <p>Delivered a full product modernization from a legacy VB6 codebase to a new Avalonia application using entirely agentic systems, scoping the architecture, designing the AI-driven workflow, and owning end-to-end delivery as a proof of concept for enterprise-scale agentic automation. Built MCP server integrations with Atlassian and internal LLMs, and produced documentation and playbooks that allowed teams to self-sustain AI-assisted development after handoff. Developed guardrails and evaluation frameworks for LLM-generated test case creation, reducing test development time by 50%. Built an end-to-end data science pipeline for electrical fault classification, applying pattern-based filtering to reduce noise by 70% and aggregating 12K raw signals into 321 actionable insights.</p>
+        <ul class="exp-bullets">
+          <li>Delivered full product modernization from VB6 to Avalonia as a proof of concept for multi-step, agentic software development at enterprise scale</li>
+          <li>Built MCP server integrations with Atlassian and internal LLMs, and produced playbooks enabling teams to self-sustain AI-assisted development</li>
+          <li>Reduced test development time by <strong>50%</strong> through LLM guardrails and evaluation frameworks for test case generation</li>
+          <li>Built fault classification pipeline reducing signal noise by <strong>70%</strong>, transforming 12K raw signals into 321 actionable insights</li>
+        </ul>
       </div>
     </div>
 
@@ -592,7 +633,12 @@
       <div class="exp-content">
         <h3>MS, Computer Engineering (Machine Learning)</h3>
         <div class="exp-company">Rochester Institute of Technology</div>
-        <p>Thesis: predicting mental health outcomes from wearable biometric data using K-Means clustering, logistic regression, causal inference (LiNGAM), and PCA. Concurrently worked as an AI Research Intern at Brainlab, evaluating neural network training paradigms (Forward-Forward vs. backpropagation) on MNIST as part of an Air Force Research Laboratory-sponsored project, with adversarial robustness analysis using FGSM and PGD. Also conducted cognitive research at the SPACE Center, studying how varying levels of deafness affect mathematical reasoning in children; built and ran experiments using PsychoPy and analyzed results.</p>
+        <ul class="exp-bullets">
+          <li>Built ML pipeline to predict mental health outcomes from wearable biometric data using clustering, regression, and causal inference (LiNGAM)</li>
+          <li>Identified sleep and activity as key behavioral predictors of mental health outcomes</li>
+          <li>Evaluated neural network training paradigms (Forward-Forward vs backpropagation) under adversarial settings at Brainlab (AFRL-sponsored)</li>
+          <li>Conducted cognitive research at the SPACE Center on how deafness affects mathematical reasoning in children</li>
+        </ul>
       </div>
     </div>
 
@@ -601,7 +647,12 @@
       <div class="exp-content">
         <h3>Product Analyst</h3>
         <div class="exp-company">FinIQ Consulting</div>
-        <p>Supported a fixed-income product recommendation system used by banks across the Middle East and South Asia, applying SQL-based analysis and feature weighting to improve recommendation relevance. Partnered with international clients to translate business requirements into data-driven workflows. Built automated reporting and notification systems using SQL, HTML, and CSS. Identified and resolved performance bottlenecks through load testing and SQL optimization, improving system performance by 30%. Contributed to the first consumer launch of amortising bonds in India.</p>
+        <ul class="exp-bullets">
+          <li>Forward-deployed with banking clients across the Middle East and South Asia, translating business requirements into engineering specifications and supporting post-launch adoption</li>
+          <li>Improved system performance by <strong>30%</strong> through load testing and SQL optimization</li>
+          <li>Built automated reporting and notification systems using SQL, HTML, and CSS</li>
+          <li>Contributed to the consumer amortising bonds launch in India</li>
+        </ul>
       </div>
     </div>
 
@@ -610,7 +661,11 @@
       <div class="exp-content">
         <h3>B.Tech, Electronics Engineering</h3>
         <div class="exp-company">Vishwakarma Institute of Technology</div>
-        <p>Computer vision, signal processing, and core engineering foundations. Interned at Healthosphere.in, building a chatbot using Google Dialogflow and AWS Lambda to automate patient scheduling and initial triage workflows across clinics. TEDxVITPune licensee, Model United Nations Chief of Staff, and volunteer teacher with Bhumi and Teach For India.</p>
+        <ul class="exp-bullets">
+          <li>Built patient scheduling and triage chatbot using Google Dialogflow and AWS Lambda at a health tech startup</li>
+          <li>Led TEDxVITPune as licensee, coordinating a team of 100+ across departments</li>
+          <li>Served as Model United Nations Chief of Staff and volunteer teacher with Bhumi and Teach For India</li>
+        </ul>
       </div>
     </div>
 
@@ -625,17 +680,18 @@
       <h2>Projects</h2>
     </div>
 
+    <!-- 001: Mental Health — anchor project -->
     <div class="project-item reveal">
       <div class="project-num">001</div>
       <div class="project-content">
-        <h3>Predicting Mental Health Outcomes from Wearable Data</h3>
-        <p>Built an ML pipeline to predict depression risk using biometric data from 17,500+ participants in the NIH "All of Us" dataset. Applied K-Means clustering to classify individuals as depressed or not depressed based on sleep and activity patterns, causal inference via LiNGAM to identify direct drivers of mental health outcomes, and linear regression to quantify feature importance. Sleep duration (0.82 Pearson correlation) and daily step count emerged as the strongest predictors.</p>
+        <h3 style="font-size:1.2rem;">Predicting Mental Health Outcomes from Wearable Data</h3>
+        <p>Built an ML pipeline on biometric data from 17,500+ participants in the NIH All of Us dataset to analyze behavioral drivers of mental health outcomes. Identified sleep duration and daily step count as the strongest predictors, and used causal inference (LiNGAM) to uncover direct relationships between lifestyle patterns and depression risk.</p>
+        <p>This work explores how wearable data can move from passive tracking to actionable early insight.</p>
         <div class="tag-row">
           <span class="tag">Python</span>
           <span class="tag">K-Means</span>
           <span class="tag">LiNGAM</span>
           <span class="tag">Causal Inference</span>
-          <span class="tag">PCA</span>
           <span class="tag">NIH Dataset</span>
         </div>
       </div>
@@ -647,16 +703,40 @@
       </div>
     </div>
 
+    <!-- 002: Agentic Research Assistant -->
     <div class="project-item reveal">
       <div class="project-num">002</div>
       <div class="project-content">
+        <h3>Agentic Research Assistant</h3>
+        <p>Built a local research agent that searches, ranks, and synthesizes information into structured reports with citations and confidence scoring.</p>
+        <p>Demonstrates multi-step reasoning, tool use, and end-to-end orchestration of retrieval and generation without reliance on external APIs.</p>
+        <div class="tag-row">
+          <span class="tag hi">LangChain</span>
+          <span class="tag hi">Tavily</span>
+          <span class="tag hi">ChromaDB</span>
+          <span class="tag hi">Ollama</span>
+          <span class="tag hi">Agents</span>
+        </div>
+      </div>
+      <div class="status-col">
+        <span class="status-badge live">
+          <span class="dot"></span>
+          Building
+        </span>
+      </div>
+    </div>
+
+    <!-- 003: Ad Copy Intelligence -->
+    <div class="project-item reveal">
+      <div class="project-num">003</div>
+      <div class="project-content">
         <h3>Ad Copy Intelligence</h3>
-        <p>I've run my own brand and thought obsessively about what makes messaging land. This project is that intuition made computational. Input a brand's ad copy, retrieve semantically similar campaigns via vector search, score emotional tone using VADER sentiment analysis, and generate variants that match or intentionally shift the emotional register. The question it's trying to answer: what does this ad feel like, and how do you make it feel different? Built using LangChain for orchestration, ChromaDB for local vector storage, sentence-transformers for embeddings, and Ollama to run the generation layer entirely offline.</p>
+        <p>Built a retrieval-and-generation system to analyze brand messaging and generate alternative ad copy with controlled emotional tone. Uses vector search to retrieve similar campaigns, sentiment analysis to assess tone, and LLMs to generate variations that either match or intentionally shift emotional register.</p>
+        <p>Explores how qualitative intuition around messaging can be translated into computational systems.</p>
         <div class="tag-row">
           <span class="tag hi">LangChain</span>
           <span class="tag hi">ChromaDB</span>
           <span class="tag hi">VADER</span>
-          <span class="tag hi">sentence-transformers</span>
           <span class="tag hi">Ollama</span>
           <span class="tag hi">RAG</span>
         </div>
@@ -669,39 +749,17 @@
       </div>
     </div>
 
-    <div class="project-item reveal">
-      <div class="project-num">003</div>
-      <div class="project-content">
-        <h3>Agentic Research Assistant</h3>
-        <p>An agent that takes a topic, searches the web via Tavily, retrieves and ranks sources using HuggingFace embeddings stored in ChromaDB, and synthesizes a structured report with citations and confidence scoring. Orchestrated with LangChain and run locally via Ollama. Demonstrates multi-step reasoning, tool use, and production-grade agentic design across an end-to-end research workflow, with no external API costs.</p>
-        <div class="tag-row">
-          <span class="tag hi">LangChain</span>
-          <span class="tag hi">Tavily</span>
-          <span class="tag hi">ChromaDB</span>
-          <span class="tag hi">Ollama</span>
-          <span class="tag hi">Agents</span>
-          <span class="tag hi">HuggingFace</span>
-        </div>
-      </div>
-      <div class="status-col">
-        <span class="status-badge live">
-          <span class="dot"></span>
-          Building
-        </span>
-      </div>
-    </div>
-
+    <!-- 004: Spotify Mood Engine -->
     <div class="project-item reveal">
       <div class="project-num">004</div>
       <div class="project-content">
         <h3>Spotify Mood Engine</h3>
-        <p>Uses personal Spotify listening history pulled via the Spotify API to cluster mood profiles, identify listening patterns across time and context, and predict future playlists using ML. Audio features like valence, energy, and tempo are embedded using sentence-transformers and clustered with K-Means to build a behavioral fingerprint. Treats music consumption as signal data, the same framing as the mental health thesis, applied to a more personal and visual domain.</p>
+        <p>Analyzed personal Spotify listening data to cluster mood profiles and identify behavioral listening patterns over time.</p>
+        <p>Treats music consumption as signal data, applying ML methods to understand how preferences shift across context and emotional state.</p>
         <div class="tag-row">
           <span class="tag hi">Spotify API</span>
-          <span class="tag hi">sentence-transformers</span>
           <span class="tag hi">K-Means</span>
           <span class="tag hi">scikit-learn</span>
-          <span class="tag hi">pandas</span>
           <span class="tag hi">Python</span>
         </div>
       </div>
@@ -721,7 +779,7 @@
   <div class="container">
     <div class="section-header reveal">
       <span class="section-num">04</span>
-      <h2>Influences</h2>
+      <h2>Reading & Thinking</h2>
     </div>
 
     <div class="project-item reveal">
@@ -729,7 +787,9 @@
       <div class="project-content">
         <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">Klara and the Sun</h3>
         <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">Kazuo Ishiguro</p>
-        <p>The idea that sunlight is literally nourishment, that it powers Klara's capacity to understand and feel, is such an elegant metaphor for how experience shapes us. And then there's the bigger question underneath everything: what actually makes us us? Klara watches humans with such careful, generous attention, more than most humans watch each other, and that irony is the quiet heart of the whole novel. The most honest fictional portrait of humanist intelligence I've encountered.</p>
+        <p>The idea that sunlight is literally nourishment, that it powers Klara's capacity to understand and feel, is such an elegant metaphor for how experience shapes us.</p>
+        <p>Underneath that is a deeper question: what actually makes us us? Klara watches humans with such careful, generous attention, more than most humans watch each other, and that irony sits at the heart of the novel.</p>
+        <p>The most honest fictional portrait of humanist intelligence I've encountered.</p>
       </div>
       <div class="status-col"></div>
     </div>
@@ -739,7 +799,9 @@
       <div class="project-content">
         <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">Thinking, Fast and Slow</h3>
         <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">Daniel Kahneman</p>
-        <p>This book taught me to slow down and be more deliberate, to catch myself when I'm pattern-matching too fast and mistake confidence for correctness. But it also made me trust my instincts differently. System 1 isn't the enemy; it's information. The emotional pull toward something is worth examining, not suppressing. What Kahneman really gave me was a framework for knowing which mode I'm in and choosing when to switch. The biases in our data are the biases in our cognition, just made legible, and an insight is only as good as the mental model of the person receiving it.</p>
+        <p>This book taught me to slow down and be more deliberate, to catch when I'm pattern-matching too quickly and mistaking confidence for correctness.</p>
+        <p>But it also changed how I think about intuition. System 1 isn't the enemy; it's information. The emotional pull toward something is worth examining, not suppressing.</p>
+        <p>The biases in our data are the biases in our cognition, just made legible, and an insight is only as good as the mental model of the person receiving it.</p>
       </div>
       <div class="status-col"></div>
     </div>
@@ -749,7 +811,8 @@
       <div class="project-content">
         <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">On the Measure of Intelligence</h3>
         <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">François Chollet</p>
-        <p>Chollet's skepticism about benchmarks cuts to something I think about constantly: LLMs can pass tests but fail at novel problems, which raises the question of whether we're measuring intelligence or memorization. The argument that general intelligence is really about adaptation, not pattern recall, reframes what it means to build something genuinely capable.</p>
+        <p>Chollet's skepticism about benchmarks captures something I think about constantly: models can pass tests but fail at novel problems.</p>
+        <p>It raises a deeper question: are we measuring intelligence, or memorization? The idea that general intelligence is about adaptation, not pattern recall, reframes what it means to build something genuinely capable.</p>
       </div>
       <div class="status-col"></div>
     </div>
@@ -759,7 +822,8 @@
       <div class="project-content">
         <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">The Alignment Problem</h3>
         <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">Brian Christian</p>
-        <p>What draws me to this is the same thread running through Klara: what does it mean to build something oriented toward people, not just toward a task? Christian asks whether AI does what we actually want, not just what we asked for, and that gap between instruction and intent is where I think the most interesting and most dangerous territory lives.</p>
+        <p>What draws me to this is the same thread running through Klara: what does it mean to build something oriented toward people, not just toward a task?</p>
+        <p>Christian asks whether AI does what we actually want, not just what we asked for, and that gap between instruction and intent is where the most interesting, and most dangerous, territory lives.</p>
       </div>
       <div class="status-col"></div>
     </div>
@@ -776,10 +840,10 @@
     </div>
     <div class="contact-inner reveal">
       <p>
-        Interested in Data Scientist, Gen AI Engineer, and AI Enablement roles in New York. If you're building something interesting, I'd love to connect!
+        I'm currently exploring roles in data science, product analytics, and applied AI. If you're building systems where data, models, and real-world decisions intersect, I'd love to connect.
       </p>
       <div class="contact-links">
-        <a href="mailto:hello.deboshreeroy@gmail.com" class="btn btn-outline">hello.deboshreeroy@gmail.com</a>
+        <a href="mailto:hello.deboshreeroy@gmail.com" class="btn btn-outline">Email</a>
         <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn</a>
         <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub</a>
       </div>
@@ -790,7 +854,6 @@
 <!-- FOOTER -->
 <footer>
   <p>Deboshree Roy · 2026</p>
-  <p>Built for GitHub Pages</p>
 </footer>
 
 <script>
