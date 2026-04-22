@@ -82,6 +82,58 @@
 
     .nav-links a:hover { color: var(--ink); }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--ink);
+      transition: all 0.25s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px; left: 0; right: 0;
+      background: rgba(249,247,244,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--accent); }
+
     /* ─── LAYOUT ─── */
     .container {
       max-width: 860px;
@@ -117,26 +169,6 @@
       animation: fadeUp 0.8s ease forwards 0.15s;
     }
 
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
     h1 {
       font-family: var(--serif);
       font-size: clamp(3.5rem, 7vw, 6.5rem);
@@ -144,6 +176,7 @@
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 1.6rem;
+      color: var(--accent);
     }
 
     h1 em {
@@ -156,50 +189,13 @@
       color: var(--ink2);
       line-height: 1.8;
       margin-bottom: 2.2rem;
-      max-width: 400px;
+      max-width: 520px;
     }
 
     .hero-cta {
       display: flex;
       gap: 0.75rem;
       flex-wrap: wrap;
-    }
-
-    .hero-right {
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.35s;
-      padding-bottom: 0.5rem;
-    }
-
-    .hero-stat-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      padding: 1.4rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-stat:first-child { border-top: 1px solid var(--border); }
-
-    .hero-stat-label {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .hero-stat-value {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--ink);
     }
 
     /* ─── BUTTONS ─── */
@@ -226,10 +222,10 @@
 
     .btn-outline {
       background: transparent;
-      color: var(--ink2);
-      border: 1px solid var(--border);
+      color: var(--accent);
+      border: 1px solid var(--accent);
     }
-    .btn-outline:hover { border-color: var(--ink2); color: var(--ink); transform: translateY(-1px); }
+    .btn-outline:hover { background: var(--accent); color: var(--bg); transform: translateY(-1px); }
 
     /* ─── SECTION HEADERS ─── */
     .section-header {
@@ -242,7 +238,7 @@
     .section-num {
       font-family: var(--mono);
       font-size: 0.68rem;
-      color: var(--muted);
+      color: var(--accent);
       letter-spacing: 0.08em;
     }
 
@@ -257,18 +253,12 @@
     /* ─── ABOUT ─── */
     #about { border-bottom: 1px solid var(--border); }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
     .about-body p {
       font-size: 0.97rem;
       color: var(--ink2);
       line-height: 1.85;
       margin-bottom: 1.3rem;
+      max-width: 720px;
     }
 
     .about-body p strong {
@@ -281,6 +271,7 @@
       padding: 1.5rem 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      max-width: 720px;
     }
 
     .pull-quote p {
@@ -293,83 +284,7 @@
       margin: 0 !important;
     }
 
-    .about-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .sidebar-block {
-      padding: 1.6rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .sidebar-block:first-child { border-top: 1px solid var(--border); }
-
-    .sidebar-label {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.45rem;
-    }
-
-    .sidebar-block p {
-      font-size: 0.84rem;
-      color: var(--ink2);
-      line-height: 1.65;
-    }
-
-    /* ─── SKILLS ─── */
-    #skills {
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-    }
-
-    .skills-table {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .skill-cell {
-      padding: 1.5rem 1.75rem;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-      transition: background 0.2s;
-    }
-
-    .skill-cell:hover { background: var(--bg2); }
-    .skill-cell:nth-child(2n) { border-right: none; }
-    .skill-cell:nth-last-child(-n+2) { border-bottom: none; }
-
-    .skill-cell h3 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 0.45rem;
-      letter-spacing: 0.02em;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .skill-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .skill-cell p {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    #influences { border-bottom: 1px solid var(--border); }
 
     /* ─── PROJECTS ─── */
     #projects { border-bottom: 1px solid var(--border); }
@@ -425,7 +340,7 @@
       background: var(--bg2);
     }
 
-    .tag.hi { border-color: rgba(196,98,45,0.28); color: var(--accent); background: rgba(196,98,45,0.05); }
+    .tag.hi { border-color: rgba(155,45,90,0.28); color: var(--accent); background: rgba(155,45,90,0.05); }
 
     .status-col { padding-top: 0.3rem; text-align: right; }
 
@@ -571,19 +486,10 @@
     @media (max-width: 760px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
       .container { padding: 0 1.5rem; }
+      #hero { padding-left: 1.5rem; padding-right: 1.5rem; }
       section { padding: 4rem 0; }
-
-      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-right { display: none; }
-
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-sidebar { display: none; }
-
-      .skills-table { grid-template-columns: 1fr; }
-      .skill-cell:nth-child(2n) { border-right: none; }
-      .skill-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
-      .skill-cell:last-child { border-bottom: none; }
 
       .project-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .project-num { display: none; }
@@ -607,7 +513,18 @@
     <li><a href="#influences">Influences</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#influences" onclick="closeMobile()">Influences</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -618,9 +535,9 @@
         I'm drawn to the intersection of data and human context, understanding why decisions happen and building systems that help people make better ones.
       </p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
-        <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub ↗</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+        <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub</a>
       </div>
     </div>
   </div>
@@ -634,22 +551,22 @@
       <h2>About</h2>
     </div>
     <div class="about-body reveal">
-        <p>
-          I started in <strong>Electronics Engineering</strong>, which taught me systems thinking and how to reason inside constraints. That foundation became the substrate beneath everything I'm drawn to build. Alongside my studies, I built a profitable fashion accessories business end-to-end, from Shopify to targeted marketing, and led TEDxVITPune as licensee, coordinating a team of 100+ across departments.
-        </p>
-        <p>
-          I then spent two years at <strong>FinIQ Consulting</strong>, working at the intersection of finance and data. I built and delivered analytics solutions for clients across varying levels of technical sophistication, which meant translating complex model outputs into decisions that stakeholders could actually act on. I was also part of the team that contributed to the consumer amortising bonds launch in India. It's where I learned that the quality of an insight is only as good as the clarity with which it lands.
-        </p>
-        <p>
-          My <strong>MS in Computer Engineering with a focus in Machine Learning</strong> gave me the depth: the math, the architecture, the research instincts. At RIT I also redesigned a university-wide leadership program, discussed AI policy with members of Congress, conducted neuroscience research, and completed my thesis in the predictive mental health space.
-        </p>
-        <p>
-          I'm currently at <strong>Qualitrol, a subsidiary of Ralliant Corporation</strong>, building agentic AI systems in production: full product modernizations driven by LLM workflows, MCP server integrations, and data pipelines that turn raw sensor signals into actionable insights.
-        </p>
-        <div class="pull-quote">
-          <p>"Across all of it, the thread for me has always been people. Making complex things accessible and building systems that actually get used. A background spanning engineering, finance, and research means I can see both what a problem is and why it matters."</p>
-        </div>
+      <p>
+        I started in <strong>Electronics Engineering</strong>, which taught me systems thinking and how to reason inside constraints. That foundation became the substrate beneath everything I'm drawn to build. Alongside my studies, I built a profitable fashion accessories business end-to-end, from Shopify to targeted marketing, and led TEDxVITPune as licensee, coordinating a team of 100+ across departments.
+      </p>
+      <p>
+        I then spent two years at <strong>FinIQ Consulting</strong>, working at the intersection of finance and data. I built and delivered analytics solutions for clients across varying levels of technical sophistication, which meant translating complex model outputs into decisions that stakeholders could actually act on. I was also part of the team that contributed to the consumer amortising bonds launch in India. It's where I learned that the quality of an insight is only as good as the clarity with which it lands.
+      </p>
+      <p>
+        My <strong>MS in Computer Engineering with a focus in Machine Learning</strong> gave me the depth: the math, the architecture, the research instincts. At RIT I also redesigned a university-wide leadership program, discussed AI policy with members of Congress, conducted neuroscience research, and completed my thesis in the predictive mental health space.
+      </p>
+      <p>
+        I'm currently at <strong>Qualitrol, a subsidiary of Ralliant Corporation</strong>, building agentic AI systems in production: full product modernizations driven by LLM workflows, MCP server integrations, and data pipelines that turn raw sensor signals into actionable insights.
+      </p>
+      <div class="pull-quote">
+        <p>"Across all of it, the thread for me has always been people. Making complex things accessible and building systems that actually get used. A background spanning engineering, finance, and research means I can see both what a problem is and why it matters."</p>
       </div>
+    </div>
   </div>
 </section>
 
@@ -708,7 +625,6 @@
       <h2>Projects</h2>
     </div>
 
-    <!-- Project 1: Mental Health -->
     <div class="project-item reveal">
       <div class="project-num">001</div>
       <div class="project-content">
@@ -731,7 +647,6 @@
       </div>
     </div>
 
-    <!-- Project 2: Ad Copy Intelligence -->
     <div class="project-item reveal">
       <div class="project-num">002</div>
       <div class="project-content">
@@ -754,7 +669,6 @@
       </div>
     </div>
 
-    <!-- Project 3: Agentic Research Assistant -->
     <div class="project-item reveal">
       <div class="project-num">003</div>
       <div class="project-content">
@@ -777,7 +691,6 @@
       </div>
     </div>
 
-    <!-- Project 4: Spotify Mood Engine -->
     <div class="project-item reveal">
       <div class="project-num">004</div>
       <div class="project-content">
@@ -866,9 +779,9 @@
         Interested in Data Scientist, Gen AI Engineer, and AI Enablement roles in New York. If you're building something interesting, I'd love to connect!
       </p>
       <div class="contact-links">
-        <a href="mailto:hello.deboshreeroy@gmail.com" class="btn btn-primary">hello.deboshreeroy@gmail.com</a>
-        <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
-        <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub ↗</a>
+        <a href="mailto:hello.deboshreeroy@gmail.com" class="btn btn-outline">hello.deboshreeroy@gmail.com</a>
+        <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub</a>
       </div>
     </div>
   </div>
@@ -891,6 +804,19 @@
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
 </script>
 </body>
 </html>
