@@ -98,14 +98,18 @@
       align-items: center;
       padding-top: 5rem;
       border-bottom: 1px solid var(--border);
+      max-width: 100%;
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
     }
 
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .hero-left {
@@ -135,10 +139,10 @@
 
     h1 {
       font-family: var(--serif);
-      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
       font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
       margin-bottom: 1.6rem;
     }
 
@@ -607,18 +611,16 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <h1>Data Scientist,<br><em>AI Engineer,</em><br>Builder.</h1>
-        <p class="hero-desc">
-          I come to data science through engineering, finance, and research. That range shapes how I build and how I communicate.
-        </p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
-          <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub ↗</a>
-        </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1>Data Scientist,<br><em>AI Engineer,</em><br>Builder.</h1>
+      <p class="hero-desc">
+        I come to data science through engineering, finance, and research. That range shapes how I build and how I communicate.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub ↗</a>
       </div>
     </div>
   </div>
@@ -861,7 +863,7 @@
     </div>
     <div class="contact-inner reveal">
       <p>
-        Interested in Data Scientist, Gen AI Engineer, and AI Enablement roles in New York. If you're building something interesting, I'd love to connect.
+        Targeting Data Scientist, Gen AI Engineer, and AI Enablement roles in New York. If you're building something interesting, I'd love to connect.
       </p>
       <div class="contact-links">
         <a href="mailto:hello.deboshreeroy@gmail.com" class="btn btn-primary">hello.deboshreeroy@gmail.com</a>
