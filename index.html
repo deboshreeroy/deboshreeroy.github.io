@@ -1,79 +1,934 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Deboshree Roy | About</title>
-  <meta name="description" content="Deboshree Roy — product-focused data scientist." />
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deboshree Roy — Data Scientist & AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f7f4;
+      --bg2: #f2efe9;
+      --ink: #1a1814;
+      --ink2: #4a4740;
+      --muted: #9a9490;
+      --accent: #9b2d5a;
+      --accent2: #3d6b5e;
+      --border: #e2ddd6;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Instrument Sans', sans-serif;
+      --mono: 'Fira Code', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3.5rem;
+      background: rgba(249,247,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-logo em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    section { padding: 6rem 0; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      width: 100%;
+    }
+
+    .hero-left {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.15s;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.6rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 0.97rem;
+      color: var(--ink2);
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+      max-width: 400px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-right {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.35s;
+      padding-bottom: 0.5rem;
+    }
+
+    .hero-stat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-stat:first-child { border-top: 1px solid var(--border); }
+
+    .hero-stat-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-stat-value {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: all 0.18s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: #2d2a25; transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink2);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--ink2); color: var(--ink); transform: translateY(-1px); }
+
+    /* ─── SECTION HEADERS ─── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { border-bottom: 1px solid var(--border); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-body p {
+      font-size: 0.97rem;
+      color: var(--ink2);
+      line-height: 1.85;
+      margin-bottom: 1.3rem;
+    }
+
+    .about-body p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .pull-quote {
+      margin-top: 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.65;
+      margin: 0 !important;
+    }
+
+    .about-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .sidebar-block {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-block:first-child { border-top: 1px solid var(--border); }
+
+    .sidebar-label {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .sidebar-block p {
+      font-size: 0.84rem;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+    /* ─── SKILLS ─── */
+    #skills {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+
+    .skills-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-cell {
+      padding: 1.5rem 1.75rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      transition: background 0.2s;
+    }
+
+    .skill-cell:hover { background: var(--bg2); }
+    .skill-cell:nth-child(2n) { border-right: none; }
+    .skill-cell:nth-last-child(-n+2) { border-bottom: none; }
+
+    .skill-cell h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .skill-cell p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects { border-bottom: 1px solid var(--border); }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2.2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-item:first-child { border-top: 1px solid var(--border); }
+
+    .project-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      padding-top: 0.3rem;
+    }
+
+    .project-content h3 {
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      font-weight: 300;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-content p {
+      font-size: 0.82rem;
+      color: var(--ink2);
+      line-height: 1.7;
+      margin-bottom: 0.9rem;
+      max-width: 520px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      padding: 0.18rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      background: var(--bg2);
+    }
+
+    .tag.hi { border-color: rgba(196,98,45,0.28); color: var(--accent); background: rgba(196,98,45,0.05); }
+
+    .status-col { padding-top: 0.3rem; text-align: right; }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .status-badge.live { color: var(--accent2); }
+
+    .status-badge .dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    .status-badge.live .dot { animation: blink 2s infinite; }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: gap 0.15s;
+    }
+
+    .project-link:hover { gap: 0.5rem; }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { border-bottom: 1px solid var(--border); }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 2.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.63rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      line-height: 1.6;
+      padding-top: 0.2rem;
+    }
+
+    .exp-content h3 {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--ink);
+      margin-bottom: 0.12rem;
+    }
+
+    .exp-company {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.55rem;
+    }
+
+    .exp-content p {
+      font-size: 0.8rem;
+      color: var(--ink2);
+      line-height: 1.7;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { text-align: center; }
+
+    #contact .section-header { justify-content: center; }
+
+    .contact-inner {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .contact-inner p {
+      font-size: 0.95rem;
+      color: var(--ink2);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 760px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .container { padding: 0 1.5rem; }
+      section { padding: 4rem 0; }
+
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-right { display: none; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-sidebar { display: none; }
+
+      .skills-table { grid-template-columns: 1fr; }
+      .skill-cell:nth-child(2n) { border-right: none; }
+      .skill-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .skill-cell:last-child { border-bottom: none; }
+
+      .project-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .project-num { display: none; }
+      .status-col { text-align: left; }
+
+      .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="ribbon">
-    <div class="ribbonInner">
-      <div class="brand">
-        <img src="assets/favicon.png" alt="Deboshree Roy logo" class="brandMark">
-        <div>Deboshree Roy</div>
-      </div>
 
-      <div class="navLinks">
-        <a href="index.html" class="active">about</a>
-        <a href="work.html">work</a>
-        <a href="influences.html">influences</a>
-        <a href="contact.html">contact</a>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Deboshree Roy<em>.</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#influences">Influences</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1>Data Scientist,<br><em>AI Engineer,</em><br>Builder.</h1>
+        <p class="hero-desc">
+          I come to data science through engineering, finance, and research. That range shapes how I build and how I communicate.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+          <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stat-list">
+          <div class="hero-stat">
+            <span class="hero-stat-label">Currently</span>
+            <span class="hero-stat-value">Data Scientist @ Qualitrol</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Background</span>
+            <span class="hero-stat-value">Electronics → Finance → ML</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Focus areas</span>
+            <span class="hero-stat-value">Data Science · Gen AI · AI Enablement</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Targeting</span>
+            <span class="hero-stat-value">NYC · $120–150k+</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <main class="wrap">
-    <header class="hero">
-      <div class="heroGrid">
-        <div>
-          <h1 class="hello">Hi, I’m Deboshree.</h1>
-          <p class="lede">
-            I’m drawn to ambiguous problems, thoughtful systems, and data that actually changes how products move forward.
-          </p>
-        </div>
-
-        <div class="roles">
-          + product analytics<br />
-          + experimentation<br />
-          + machine learning<br />
-          + data storytelling
-        </div>
-      </div>
-    </header>
-
-    <div class="sectionHead">
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-num">01</span>
       <h2>About</h2>
-      <p>A quick snapshot of what I like building and how I work.</p>
     </div>
-    <div class="rule"></div>
-
-    <section style="padding: 26px 0; border-top: 1px solid var(--border);">
-      <div style="max-width: 78ch; color: var(--muted); font-size: 15.5px; line-height: 1.9;">
-        <p style="margin:0 0 14px;">
-          I work at the intersection of product and data science — building reliable analysis, evaluation, and systems that help teams make decisions with confidence.
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p>
+          I started in <strong>Electronics Engineering</strong>, which taught me systems thinking and how to reason inside constraints. That foundation became the substrate beneath everything I'm drawn to build. Alongside it, I built a profitable fashion accessories business end-to-end, from Shopify to targeted marketing, and led TEDxVITPune as licensee, coordinating a team of 100+ across departments.
         </p>
-        <p style="margin:0 0 14px;">
-          I’m especially interested in experimentation, retention/engagement analytics, and ML systems that are measured thoughtfully.
+        <p>
+          I then spent two years at <strong>FinIQ Consulting</strong>, working at the intersection of finance and data. I built and delivered analytics solutions for clients across varying levels of technical sophistication, which meant translating complex model outputs into decisions that stakeholders could actually act on. I was also part of the team that contributed to the consumer amortising bonds launch in India. It's where I learned that the quality of an insight is only as good as the clarity with which it lands.
         </p>
-        <p style="margin:0;">
-          If you want to see what that looks like in practice, my case studies live on the <a href="work.html" style="text-decoration: underline; text-underline-offset: 4px;">Work</a> page.
+        <p>
+          My <strong>MS in Computer Engineering with a focus in Machine Learning</strong> gave me the depth: the math, the architecture, the research instincts. At RIT I also redesigned a university-wide leadership program, discussed AI policy with members of Congress, conducted neuroscience research, and completed my thesis in the predictive mental health space.
         </p>
+        <p>
+          I'm currently at <strong>Qualitrol, a subsidiary of Ralliant Corporation</strong>, building agentic AI systems in production: full product modernizations driven by LLM workflows, MCP server integrations, and data pipelines that turn raw sensor signals into actionable insights.
+        </p>
+        <div class="pull-quote">
+          <p>"Across all of it, the thread for me has always been people. Making complex things accessible and building systems that actually get used. A background spanning engineering, finance, and research means I can see both what a problem is and why it matters."</p>
+        </div>
       </div>
-    </section>
+      <div class="about-sidebar reveal">
+        <div class="sidebar-block">
+          <div class="sidebar-label">Targeting</div>
+          <p>Data Scientist<br>Gen AI / AI Engineer<br>AI Enablement</p>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Location</div>
+          <p>NYC-based roles</p>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Companies of interest</div>
+          <p>LangChain, AirOps, Capital One, Snowflake, Scale AI, Palantir, BCG X</p>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">Education</div>
+          <p>MS Computer Engineering (ML)<br>B.Tech Electronics Engineering</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-      <div>© <span id="year"></span> Deboshree Roy</div>
-      <div>Built on GitHub Pages</div>
-    </footer>
-  </main>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <h2>Experience</h2>
+    </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <div class="exp-item reveal">
+      <div class="exp-date">Jan 2024 — Present</div>
+      <div class="exp-content">
+        <h3>R&D Engineer, ML and Data Platforms</h3>
+        <div class="exp-company">Qualitrol, a Ralliant Corporation subsidiary</div>
+        <p>Delivered a full product modernization from a legacy VB6 codebase to a new Avalonia application using entirely agentic systems, scoping the architecture, designing the AI-driven workflow, and owning end-to-end delivery as a proof of concept for enterprise-scale agentic automation. Built MCP server integrations with Atlassian and internal LLMs, and produced documentation and playbooks that allowed teams to self-sustain AI-assisted development after handoff. Developed guardrails and evaluation frameworks for LLM-generated test case creation, reducing test development time by 50%. Built an end-to-end data science pipeline for electrical fault classification, applying pattern-based filtering to reduce noise by 70% and aggregating 12K raw signals into 321 actionable insights.</p>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-date">Aug 2022 — Dec 2024</div>
+      <div class="exp-content">
+        <h3>MS, Computer Engineering (Machine Learning)</h3>
+        <div class="exp-company">Rochester Institute of Technology</div>
+        <p>Thesis: predicting mental health outcomes from wearable biometric data using K-Means clustering, logistic regression, causal inference (LiNGAM), and PCA. Concurrently worked as an AI Research Intern at Brainlab, evaluating neural network training paradigms (Forward-Forward vs. backpropagation) on MNIST as part of an Air Force Research Laboratory-sponsored project, with adversarial robustness analysis using FGSM and PGD. Also conducted cognitive research at the SPACE Center, studying how varying levels of deafness affect mathematical reasoning in children; built and ran experiments using PsychoPy and analyzed results.</p>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-date">Aug 2020 — July 2022</div>
+      <div class="exp-content">
+        <h3>Product Analyst</h3>
+        <div class="exp-company">FinIQ Consulting</div>
+        <p>Supported a fixed-income product recommendation system used by banks across the Middle East and South Asia, applying SQL-based analysis and feature weighting to improve recommendation relevance. Partnered with international clients to translate business requirements into data-driven workflows. Built automated reporting and notification systems using SQL, HTML, and CSS. Identified and resolved performance bottlenecks through load testing and SQL optimization, improving system performance by 30%. Contributed to the first consumer launch of amortising bonds in India.</p>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-date">Aug 2016 — May 2020</div>
+      <div class="exp-content">
+        <h3>B.Tech, Electronics Engineering</h3>
+        <div class="exp-company">Vishwakarma Institute of Technology</div>
+        <p>Computer vision, signal processing, and core engineering foundations. Interned at Healthosphere.in, building a chatbot using Google Dialogflow and AWS Lambda to automate patient scheduling and initial triage workflows across clinics. TEDxVITPune licensee, Model United Nations Chief of Staff, and volunteer teacher with Bhumi and Teach For India.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
+      <h2>Projects</h2>
+    </div>
+
+    <!-- Project 1: Mental Health -->
+    <div class="project-item reveal">
+      <div class="project-num">001</div>
+      <div class="project-content">
+        <h3>Predicting Mental Health Outcomes from Wearable Data</h3>
+        <p>Built an ML pipeline to predict depression risk using biometric data from 17,500+ participants in the NIH "All of Us" dataset. Applied K-Means clustering to classify individuals as depressed or not depressed based on sleep and activity patterns, causal inference via LiNGAM to identify direct drivers of mental health outcomes, and linear regression to quantify feature importance. Sleep duration (0.82 Pearson correlation) and daily step count emerged as the strongest predictors.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">K-Means</span>
+          <span class="tag">LiNGAM</span>
+          <span class="tag">Causal Inference</span>
+          <span class="tag">PCA</span>
+          <span class="tag">NIH Dataset</span>
+        </div>
+      </div>
+      <div class="status-col">
+        <span class="status-badge live">
+          <span class="dot"></span>
+          MS Thesis
+        </span>
+      </div>
+    </div>
+
+    <!-- Project 2: Ad Copy Intelligence -->
+    <div class="project-item reveal">
+      <div class="project-num">002</div>
+      <div class="project-content">
+        <h3>Ad Copy Intelligence</h3>
+        <p>I've run my own brand and thought obsessively about what makes messaging land. This project is that intuition made computational. Input a brand's ad copy, retrieve semantically similar campaigns via vector search, score emotional tone using VADER sentiment analysis, and generate variants that match or intentionally shift the emotional register. The question it's trying to answer: what does this ad feel like, and how do you make it feel different? Built using LangChain for orchestration, ChromaDB for local vector storage, sentence-transformers for embeddings, and Ollama to run the generation layer entirely offline.</p>
+        <div class="tag-row">
+          <span class="tag hi">LangChain</span>
+          <span class="tag hi">ChromaDB</span>
+          <span class="tag hi">VADER</span>
+          <span class="tag hi">sentence-transformers</span>
+          <span class="tag hi">Ollama</span>
+          <span class="tag hi">RAG</span>
+        </div>
+      </div>
+      <div class="status-col">
+        <span class="status-badge live">
+          <span class="dot"></span>
+          Building
+        </span>
+      </div>
+    </div>
+
+    <!-- Project 3: Agentic Research Assistant -->
+    <div class="project-item reveal">
+      <div class="project-num">003</div>
+      <div class="project-content">
+        <h3>Agentic Research Assistant</h3>
+        <p>An agent that takes a topic, searches the web via Tavily, retrieves and ranks sources using HuggingFace embeddings stored in ChromaDB, and synthesizes a structured report with citations and confidence scoring. Orchestrated with LangChain and run locally via Ollama. Demonstrates multi-step reasoning, tool use, and production-grade agentic design across an end-to-end research workflow, with no external API costs.</p>
+        <div class="tag-row">
+          <span class="tag hi">LangChain</span>
+          <span class="tag hi">Tavily</span>
+          <span class="tag hi">ChromaDB</span>
+          <span class="tag hi">Ollama</span>
+          <span class="tag hi">Agents</span>
+          <span class="tag hi">HuggingFace</span>
+        </div>
+      </div>
+      <div class="status-col">
+        <span class="status-badge live">
+          <span class="dot"></span>
+          Building
+        </span>
+      </div>
+    </div>
+
+    <!-- Project 4: Spotify Mood Engine -->
+    <div class="project-item reveal">
+      <div class="project-num">004</div>
+      <div class="project-content">
+        <h3>Spotify Mood Engine</h3>
+        <p>Uses personal Spotify listening history pulled via the Spotify API to cluster mood profiles, identify listening patterns across time and context, and predict future playlists using ML. Audio features like valence, energy, and tempo are embedded using sentence-transformers and clustered with K-Means to build a behavioral fingerprint. Treats music consumption as signal data, the same framing as the mental health thesis, applied to a more personal and visual domain.</p>
+        <div class="tag-row">
+          <span class="tag hi">Spotify API</span>
+          <span class="tag hi">sentence-transformers</span>
+          <span class="tag hi">K-Means</span>
+          <span class="tag hi">scikit-learn</span>
+          <span class="tag hi">pandas</span>
+          <span class="tag hi">Python</span>
+        </div>
+      </div>
+      <div class="status-col">
+        <span class="status-badge live">
+          <span class="dot"></span>
+          Building
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INFLUENCES -->
+<section id="influences">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
+      <h2>Influences</h2>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">Book</div>
+      <div class="project-content">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">Klara and the Sun</h3>
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">Kazuo Ishiguro</p>
+        <p>The idea that sunlight is literally nourishment, that it powers Klara's capacity to understand and feel, is such an elegant metaphor for how experience shapes us. And then there's the bigger question underneath everything: what actually makes us us? Klara watches humans with such careful, generous attention, more than most humans watch each other, and that irony is the quiet heart of the whole novel. The most honest fictional portrait of humanist intelligence I've encountered.</p>
+      </div>
+      <div class="status-col"></div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">Book</div>
+      <div class="project-content">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">Thinking, Fast and Slow</h3>
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">Daniel Kahneman</p>
+        <p>This book taught me to slow down and be more deliberate, to catch myself when I'm pattern-matching too fast and mistake confidence for correctness. But it also made me trust my instincts differently. System 1 isn't the enemy; it's information. The emotional pull toward something is worth examining, not suppressing. What Kahneman really gave me was a framework for knowing which mode I'm in and choosing when to switch. The biases in our data are the biases in our cognition, just made legible, and an insight is only as good as the mental model of the person receiving it.</p>
+      </div>
+      <div class="status-col"></div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">Paper</div>
+      <div class="project-content">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">On the Measure of Intelligence</h3>
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">François Chollet</p>
+        <p>Chollet's skepticism about benchmarks cuts to something I think about constantly: LLMs can pass tests but fail at novel problems, which raises the question of whether we're measuring intelligence or memorization. The argument that general intelligence is really about adaptation, not pattern recall, reframes what it means to build something genuinely capable.</p>
+      </div>
+      <div class="status-col"></div>
+    </div>
+
+    <div class="project-item reveal">
+      <div class="project-num">Book</div>
+      <div class="project-content">
+        <h3 style="font-family:var(--serif);font-size:1.1rem;font-weight:300;">The Alignment Problem</h3>
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;">Brian Christian</p>
+        <p>What draws me to this is the same thread running through Klara: what does it mean to build something oriented toward people, not just toward a task? Christian asks whether AI does what we actually want, not just what we asked for, and that gap between instruction and intent is where I think the most interesting and most dangerous territory lives.</p>
+      </div>
+      <div class="status-col"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-num">05</span>
+      <h2>Let's talk.</h2>
+    </div>
+    <div class="contact-inner reveal">
+      <p>
+        Targeting Data Scientist, Gen AI Engineer, and AI Enablement roles in New York. If you're building something interesting, I'd love to connect.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:hello.deboshreeroy@gmail.com" class="btn btn-primary">hello.deboshreeroy@gmail.com</a>
+        <a href="https://www.linkedin.com/in/deboshreeroy10/" target="_blank" class="btn btn-outline">LinkedIn ↗</a>
+        <a href="https://github.com/deboshreeroy" target="_blank" class="btn btn-outline">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Deboshree Roy · 2026</p>
+  <p>Built for GitHub Pages</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
