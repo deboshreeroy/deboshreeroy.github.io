@@ -1,5 +1,4 @@
 // Shared nav + footer + scroll-reveal + mobile menu
-// (no build step — vanilla JS, GitHub Pages friendly)
 
 (function() {
   const ACTIVE = document.body.dataset.page || '';
