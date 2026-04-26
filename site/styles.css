@@ -1,5 +1,6 @@
 /* ============================================
    Deboshree Roy — Personal Site
+   Shared stylesheet (GitHub Pages ready)
    ============================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -378,7 +379,7 @@ h2 {
   color: inherit;
   transition: background 0.2s;
 }
-.project-item:last-child { border-bottom: none; }
+/* last item border handled inline */
 .project-item:hover { background: rgba(155,45,90,0.025); }
 .project-item:hover .project-link { gap: 0.55rem; }
 
@@ -611,7 +612,7 @@ h2 {
   padding: 2rem 0;
   border-bottom: 1px solid var(--border);
 }
-.exp-item:last-child { border-bottom: none; }
+/* exp-item and project-item borders handled per item */
 .exp-date {
   font-family: var(--mono);
   font-size: 0.63rem;
