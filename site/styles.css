@@ -1,6 +1,5 @@
 /* ============================================
-   Deboshree Roy — Personal Site
-   Shared stylesheet (GitHub Pages ready)
+   Deboshree Roy - Personal Site
    ============================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -288,32 +287,12 @@ h2 {
 }
 .about-photo {
   aspect-ratio: 4/5;
-  background: var(--bg2);
-  border: 1px dashed var(--muted);
   border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
 }
 .about-photo::after {
-  content: '';
-  position: absolute; inset: 8px;
-  background-image: linear-gradient(135deg, transparent 47%, var(--muted) 47%, var(--muted) 53%, transparent 53%);
-  background-size: 18px 18px;
-  opacity: 0.18;
-}
-.about-photo span {
-  position: relative;
-  z-index: 1;
-  background: var(--bg2);
-  padding: 0 8px;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  content: none;
 }
 .photo-caption {
   font-family: var(--mono);
