@@ -1,5 +1,5 @@
 /* ============================================
-   Deboshree Roy - Personal Site
+   Deboshree Roy — Personal Site
    ============================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -290,9 +290,6 @@ h2 {
   border-radius: 3px;
   position: relative;
   overflow: hidden;
-}
-.about-photo::after {
-  content: none;
 }
 .photo-caption {
   font-family: var(--mono);
