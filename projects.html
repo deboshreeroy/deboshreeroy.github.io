@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Deboshree Roy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Instrument+Sans:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site/styles.css">
+</head>
+<body data-page="projects" data-root="./">
+
+<div id="nav-mount"></div>
+
+<main>
+  <header class="page-header">
+    <div class="container">
+      <div class="eyebrow">02 / Projects</div>
+      <h1>Selected <em>work.</em></h1>
+      <p class="lede">
+        Mapped below by stage and scope- from exploratory research to deployed systems, narrow experiments to broad infrastructure.
+      </p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+
+      <!-- PROJECT PLOT -->
+      <div class="plot-wrap reveal">
+        <div class="plot-caption">↓ Hover any node - click to read</div>
+        <div class="plot">
+          <div class="plot-axis-v"></div>
+          <div class="plot-axis-h"></div>
+          <div class="plot-label top">↑ Broad scope</div>
+          <div class="plot-label bottom">↓ Narrow scope</div>
+          <div class="plot-label left">← Exploratory</div>
+          <div class="plot-label right">Deployed →</div>
+
+          <a class="plot-node" href="projects/mental-health.html" style="left:12%; top:30%;">
+            <span class="dot"></span>
+            <div class="name">Mental Health Thesis</div>
+            <span class="num">001</span>
+          </a>
+          <a class="plot-node" href="projects/agentic-research.html" style="left:48%; top:22%;">
+            <span class="dot"></span>
+            <div class="name">Agentic Research</div>
+            <span class="num">002</span>
+          </a>
+          <a class="plot-node" href="projects/ad-copy.html" style="left:34%; top:46%;">
+            <span class="dot"></span>
+            <div class="name">Ad Copy Intel</div>
+            <span class="num">003</span>
+          </a>
+          <a class="plot-node" href="projects/spotify-mood.html" style="left:26%; top:78%;">
+            <span class="dot"></span>
+            <div class="name">Spotify Mood</div>
+            <span class="num">004</span>
+          </a>
+          <a class="plot-node" href="projects/mcp-server.html" style="left:80%; top:26%;">
+            <span class="dot"></span>
+            <div class="name">MCP IDE Server</div>
+            <span class="num">005</span>
+          </a>
+          <a class="plot-node" href="projects/guardrails.html" style="left:78%; top:68%;">
+            <span class="dot"></span>
+            <div class="name">Test Gen Guardrails</div>
+            <span class="num">006</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- LIST -->
+      <a href="projects/mental-health.html" class="project-item reveal">
+        <div class="project-num">001</div>
+        <div class="project-content">
+          <h3>Predicting Mental Health from Wearable Data</h3>
+          <p>Built an ML pipeline on biometric data from 17,500+ participants in the NIH All of Us dataset to analyze behavioral drivers of mental health. Identified sleep duration and daily step count as the strongest predictors, and used causal inference (LiNGAM) to uncover direct relationships between lifestyle patterns and depression risk.</p>
+          <div class="tag-row">
+            <span class="tag hi">Python</span>
+            <span class="tag hi">K-Means</span>
+            <span class="tag hi">LiNGAM</span>
+            <span class="tag hi">Causal Inference</span>
+            <span class="tag hi">NIH Dataset</span>
+          </div>
+        </div>
+        <div class="status-col">
+          <span class="status-badge"><span class="dot"></span>MS Thesis</span>
+        </div>
+      </a>
+
+      <a href="projects/agentic-research.html" class="project-item reveal">
+        <div class="project-num">002</div>
+        <div class="project-content">
+          <h3>Agentic Research Assistant</h3>
+          <p>A local research agent that searches, ranks, and synthesizes information into structured reports with citations and confidence scoring. Multi-step reasoning, tool use, end-to-end orchestration of retrieval and generation without external APIs.</p>
+          <div class="tag-row">
+            <span class="tag hi">LangChain</span>
+            <span class="tag hi">Tavily</span>
+            <span class="tag hi">ChromaDB</span>
+            <span class="tag hi">Ollama</span>
+          </div>
+        </div>
+        <div class="status-col">
+          <span class="status-badge live"><span class="dot"></span>Building</span>
+        </div>
+      </a>
+
+      <a href="projects/ad-copy.html" class="project-item reveal">
+        <div class="project-num">003</div>
+        <div class="project-content">
+          <h3>Ad Copy Intelligence</h3>
+          <p>Retrieval-and-generation system to analyze brand messaging and produce alternative ad copy with controlled emotional tone. Vector search retrieves similar campaigns; sentiment analysis assesses tone; LLMs generate variations that match or intentionally shift register.</p>
+          <div class="tag-row">
+            <span class="tag hi">LangChain</span>
+            <span class="tag hi">ChromaDB</span>
+            <span class="tag hi">VADER</span>
+            <span class="tag hi">RAG</span>
+          </div>
+        </div>
+        <div class="status-col">
+          <span class="status-badge live"><span class="dot"></span>Building</span>
+        </div>
+      </a>
+
+      <a href="projects/spotify-mood.html" class="project-item reveal">
+        <div class="project-num">004</div>
+        <div class="project-content">
+          <h3>Spotify Mood Engine</h3>
+          <p>Analyzed personal Spotify listening data to cluster mood profiles and identify behavioral patterns over time. Treats music consumption as signal data, applying ML to understand how preferences shift across context and emotional state.</p>
+          <div class="tag-row">
+            <span class="tag hi">Spotify API</span>
+            <span class="tag hi">K-Means</span>
+            <span class="tag hi">scikit-learn</span>
+          </div>
+        </div>
+        <div class="status-col">
+          <span class="status-badge live"><span class="dot"></span>Building</span>
+        </div>
+      </a>
+
+      <a href="projects/mcp-server.html" class="project-item reveal">
+        <div class="project-num">005</div>
+        <div class="project-content">
+          <h3>MCP Server for IDE Productivity</h3>
+          <p>Built an MCP (Model Context Protocol) server that connects Jira and Confluence into the IDE, so engineers can pull tickets, search docs, and update issues without leaving their editor. Reduced context-switching during development and made AI coding assistants ticket-aware.</p>
+          <div class="tag-row">
+            <span class="tag hi">MCP</span>
+            <span class="tag hi">LLM Tooling</span>
+            <span class="tag hi">Jira API</span>
+            <span class="tag hi">Confluence API</span>
+            <span class="tag hi">Developer Experience</span>
+          </div>
+        </div>
+        <div class="status-col">
+          <span class="status-badge"><span class="dot"></span>Deployed</span>
+        </div>
+      </a>
+
+      <a href="projects/guardrails.html" class="project-item reveal">
+        <div class="project-num">006</div>
+        <div class="project-content">
+          <h3>Guardrails for Test Case Generation</h3>
+          <p>Designed and implemented a guardrails layer for an LLM-based test case generation system, validating outputs against schema, coverage, and safety constraints before they reached engineers. Improved trust and adoption of AI-generated tests in the development workflow.</p>
+          <div class="tag-row">
+            <span class="tag hi">LLM Safety</span>
+            <span class="tag hi">Evaluation</span>
+            <span class="tag hi">Python</span>
+            <span class="tag hi">Production AI</span>
+          </div>
+        </div>
+        <div class="status-col">
+          <span class="status-badge"><span class="dot"></span>Deployed</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="site/nav.js"></script>
+</body>
+</html>
